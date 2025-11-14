@@ -30,9 +30,9 @@ export const Layout = ({ children }: LayoutProps) => {
   return (
     <div className="min-h-screen flex flex-col">
       <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="container flex h-16 items-center justify-between">
+        <div className="container flex h-24 md:h-28 items-center justify-between py-3">
           <Link to="/" className="flex items-center">
-            <img src={logo} alt="Estilo Chique" className="h-16 md:h-20 w-auto" />
+            <img src={logo} alt="Estilo Chique" className="h-20 md:h-24 w-auto" />
           </Link>
 
           <nav className="hidden md:flex items-center space-x-8">
@@ -66,7 +66,7 @@ export const Layout = ({ children }: LayoutProps) => {
               <SheetContent side="right" className="w-[300px] sm:w-[400px]">
                 <SheetHeader>
                   <SheetTitle className="font-serif text-xl text-left flex items-center">
-                    <img src={logo} alt="Estilo Chique" className="h-12 w-auto" />
+                    <img src={logo} alt="Estilo Chique" className="h-16 w-auto" />
                   </SheetTitle>
                 </SheetHeader>
                 <nav className="flex flex-col space-y-4 mt-8">
@@ -98,7 +98,7 @@ export const Layout = ({ children }: LayoutProps) => {
         <div className="container py-12">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="space-y-3">
-              <img src={logo} alt="Estilo Chique" className="h-14 w-auto mb-2" />
+              <img src={logo} alt="Estilo Chique" className="h-16 w-auto mb-2" />
               <p className="text-sm text-muted-foreground">
                 Moda elegante e atemporal para mulheres que valorizam qualidade e sofisticação.
               </p>
