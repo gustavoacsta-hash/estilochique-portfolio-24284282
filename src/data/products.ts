@@ -21,7 +21,7 @@ export const categorias = [
 export const produtos: Produto[] = [
   {
     id: "1",
-    nome: "Vestido Midi Linho Bege",
+    nome: "Lorem ipsum",
     slug: "vestido-midi-linho-bege",
     descricao: "Vestido midi em linho natural com corte elegante e alças ajustáveis",
     categoria: "Vestidos",
@@ -30,7 +30,7 @@ export const produtos: Produto[] = [
   },
   {
     id: "2",
-    nome: "Blusa Cetim Ivory",
+    nome: "Lorem ipsum",
     slug: "blusa-cetim-ivory",
     descricao: "Blusa em cetim com gola laço e mangas longas bufantes",
     categoria: "Blusas",
@@ -39,7 +39,7 @@ export const produtos: Produto[] = [
   },
   {
     id: "3",
-    nome: "Calça Alfaiataria Preta",
+    nome: "Lorem ipsum",
     slug: "calca-alfaiataria-preta",
     descricao: "Calça de alfaiataria com cintura alta e corte reto clássico",
     categoria: "Calças",
@@ -48,7 +48,7 @@ export const produtos: Produto[] = [
   },
   {
     id: "4",
-    nome: "Saia Plissada Caramelo",
+    nome: "Lorem ipsum",
     slug: "saia-plissada-caramelo",
     descricao: "Saia midi plissada em tecido fluido com forro interno",
     categoria: "Saias",
@@ -57,7 +57,7 @@ export const produtos: Produto[] = [
   },
   {
     id: "5",
-    nome: "Blazer Oversized Cru",
+    nome: "Lorem ipsum",
     slug: "blazer-oversized-cru",
     descricao: "Blazer oversized em linho com ombros estruturados",
     categoria: "Blazers",
@@ -66,7 +66,7 @@ export const produtos: Produto[] = [
   },
   {
     id: "6",
-    nome: "Vestido Longo Estampado",
+    nome: "Lorem ipsum",
     slug: "vestido-longo-estampado",
     descricao: "Vestido longo fluido com estampa floral delicada",
     categoria: "Vestidos",
@@ -75,7 +75,7 @@ export const produtos: Produto[] = [
   },
   {
     id: "7",
-    nome: "Blusa Linho Off-White",
+    nome: "Lorem ipsum",
     slug: "blusa-linho-off-white",
     descricao: "Blusa em linho puro com botões de madrepérola",
     categoria: "Blusas",
@@ -84,7 +84,7 @@ export const produtos: Produto[] = [
   },
   {
     id: "8",
-    nome: "Calça Wide Leg Marfim",
+    nome: "Lorem ipsum",
     slug: "calca-wide-leg-marfim",
     descricao: "Calça pantalona com caimento impecável e cós alto",
     categoria: "Calças",
@@ -93,7 +93,7 @@ export const produtos: Produto[] = [
   },
   {
     id: "9",
-    nome: "Saia Midi Seda Champagne",
+    nome: "Lorem ipsum",
     slug: "saia-midi-seda-champagne",
     descricao: "Saia midi em seda com barra assimétrica",
     categoria: "Saias",
@@ -102,7 +102,7 @@ export const produtos: Produto[] = [
   },
   {
     id: "10",
-    nome: "Blazer Estruturado Navy",
+    nome: "Lorem ipsum",
     slug: "blazer-estruturado-navy",
     descricao: "Blazer clássico em alfaiataria italiana premium",
     categoria: "Blazers",
@@ -111,7 +111,7 @@ export const produtos: Produto[] = [
   },
   {
     id: "11",
-    nome: "Vestido Slip Dress Seda",
+    nome: "Lorem ipsum",
     slug: "vestido-slip-dress-seda",
     descricao: "Slip dress em seda pura com alças finas ajustáveis",
     categoria: "Vestidos",
@@ -120,7 +120,7 @@ export const produtos: Produto[] = [
   },
   {
     id: "12",
-    nome: "Cinto Couro Caramelo",
+    nome: "Lorem ipsum",
     slug: "cinto-couro-caramelo",
     descricao: "Cinto em couro italiano com fivela dourada",
     categoria: "Acessórios",
@@ -129,7 +129,7 @@ export const produtos: Produto[] = [
   },
   {
     id: "13",
-    nome: "Blusa Gola Alta Tricot",
+    nome: "Lorem ipsum",
     slug: "blusa-gola-alta-tricot",
     descricao: "Blusa de tricot fino com gola alta e mangas longas",
     categoria: "Blusas",
@@ -138,7 +138,7 @@ export const produtos: Produto[] = [
   },
   {
     id: "14",
-    nome: "Calça Jogger Premium",
+    nome: "Lorem ipsum",
     slug: "calca-jogger-premium",
     descricao: "Calça jogger em tecido nobre com acabamento impecável",
     categoria: "Calças",
@@ -147,7 +147,7 @@ export const produtos: Produto[] = [
   },
   {
     id: "15",
-    nome: "Bolsa Tote Linho",
+    nome: "Lorem ipsum",
     slug: "bolsa-tote-linho",
     descricao: "Bolsa tote oversized em linho natural",
     categoria: "Acessórios",
@@ -156,7 +156,7 @@ export const produtos: Produto[] = [
   },
   {
     id: "16",
-    nome: "Vestido Camisa Listrado",
+    nome: "Lorem ipsum",
     slug: "vestido-camisa-listrado",
     descricao: "Vestido camisa com listras verticais e cinto incluso",
     categoria: "Vestidos",
