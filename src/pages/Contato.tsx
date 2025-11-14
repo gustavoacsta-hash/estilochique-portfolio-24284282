@@ -73,13 +73,12 @@ export default function Contato() {
             </div>
           </div>
 
-          {/* Right Column - Form */}
           <div className="bg-muted/30 p-8 rounded-sm">
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={enviarFormulario} className="space-y-6">
               <div className="space-y-2">
-                <Label htmlFor="name">Nome</Label>
+                <Label htmlFor="nome">Nome</Label>
                 <Input
-                  id="name"
+                  id="nome"
                   type="text"
                   placeholder="Seu nome completo"
                   required
@@ -97,18 +96,18 @@ export default function Contato() {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="phone">Telefone (opcional)</Label>
+                <Label htmlFor="telefone">Telefone (opcional)</Label>
                 <Input
-                  id="phone"
+                  id="telefone"
                   type="tel"
                   placeholder="(00) 00000-0000"
                 />
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="message">Mensagem</Label>
+                <Label htmlFor="mensagem">Mensagem</Label>
                 <Textarea
-                  id="message"
+                  id="mensagem"
                   placeholder="Como podemos ajudá-la?"
                   rows={5}
                   required
