@@ -20,7 +20,6 @@ export const ProductFilters = ({
 }: ProductFiltersProps) => {
   return (
     <div className="space-y-6">
-      {/* Search Bar */}
       <div className="relative max-w-md">
         <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
         <Input
@@ -32,7 +31,6 @@ export const ProductFilters = ({
         />
       </div>
 
-      {/* Category Filters */}
       <div className="flex flex-wrap gap-2">
         {categories.map((category) => (
           <Button

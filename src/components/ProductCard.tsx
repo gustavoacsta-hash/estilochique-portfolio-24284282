@@ -11,7 +11,6 @@ export const ProductCard = ({ product }: ProductCardProps) => {
     <Link to={`/produtos/${product.slug}`}>
       <Card className="group overflow-hidden border-border/50 hover:border-border transition-all duration-300 hover-lift">
         <CardContent className="p-0">
-          {/* Image Container */}
           <div className="relative aspect-[3/4] overflow-hidden bg-muted">
             <img
               src={product.image}
@@ -26,7 +25,6 @@ export const ProductCard = ({ product }: ProductCardProps) => {
             )}
           </div>
 
-          {/* Product Info */}
           <div className="p-4 space-y-2">
             <p className="text-xs text-muted-foreground uppercase tracking-wider">
               {product.category}

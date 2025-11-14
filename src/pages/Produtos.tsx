@@ -12,7 +12,6 @@ export default function Produtos() {
   const [searchQuery, setSearchQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
 
-  // Filter products based on category and search
   const filteredProducts = useMemo(() => {
     return products.filter((product) => {
       const matchesCategory =
@@ -24,13 +23,11 @@ export default function Produtos() {
     });
   }, [selectedCategory, searchQuery]);
 
-  // Calculate pagination
   const totalPages = Math.ceil(filteredProducts.length / PRODUCTS_PER_PAGE);
   const startIndex = (currentPage - 1) * PRODUCTS_PER_PAGE;
   const endIndex = startIndex + PRODUCTS_PER_PAGE;
   const currentProducts = filteredProducts.slice(startIndex, endIndex);
 
-  // Reset to page 1 when filters change
   const handleCategoryChange = (category: string) => {
     setSelectedCategory(category);
     setCurrentPage(1);
@@ -54,7 +51,6 @@ export default function Produtos() {
   return (
     <div className="min-h-screen py-24">
       <div className="container">
-        {/* Header */}
         <div className="text-center space-y-4 mb-12 animate-fade-in-up">
           <h1 className="font-serif text-5xl md:text-6xl font-bold">
             Nossa Coleção
@@ -64,7 +60,6 @@ export default function Produtos() {
           </p>
         </div>
 
-        {/* Filters */}
         <div className="mb-12 animate-fade-in" style={{ animationDelay: "0.1s" }}>
           <ProductFilters
             categories={categories}
@@ -75,12 +70,10 @@ export default function Produtos() {
           />
         </div>
 
-        {/* Results Count */}
         <div className="mb-6 text-sm text-muted-foreground">
           {filteredProducts.length} {filteredProducts.length === 1 ? "produto encontrado" : "produtos encontrados"}
         </div>
 
-        {/* Products Grid */}
         {currentProducts.length > 0 ? (
           <div
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-12 animate-fade-in"
@@ -108,7 +101,6 @@ export default function Produtos() {
           </div>
         )}
 
-        {/* Pagination */}
         {totalPages > 1 && (
           <div className="flex items-center justify-center gap-4 mt-12">
             <Button

@@ -28,17 +28,14 @@ export const Layout = ({ children }: LayoutProps) => {
 
   return (
     <div className="min-h-screen flex flex-col">
-      {/* Header */}
       <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container flex h-16 items-center justify-between">
-          {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
             <span className="font-serif text-2xl font-semibold tracking-tight">
               ESTILO CHIQUE
             </span>
           </Link>
 
-          {/* Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             {navigation.map((item) => (
               <Link
@@ -56,13 +53,11 @@ export const Layout = ({ children }: LayoutProps) => {
             ))}
           </nav>
 
-          {/* Actions */}
           <div className="flex items-center space-x-4">
             <Button variant="ghost" size="icon" className="hidden md:flex">
               <Search className="h-5 w-5" />
             </Button>
 
-            {/* Mobile Menu */}
             <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
               <SheetTrigger asChild>
                 <Button variant="ghost" size="icon" className="md:hidden">
@@ -98,14 +93,11 @@ export const Layout = ({ children }: LayoutProps) => {
         </div>
       </header>
 
-      {/* Main Content */}
       <main className="flex-1">{children}</main>
 
-      {/* Footer */}
       <footer className="border-t border-border bg-muted/30">
         <div className="container py-12">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            {/* Brand */}
             <div className="space-y-3">
               <h3 className="font-serif text-lg font-semibold">ESTILO CHIQUE</h3>
               <p className="text-sm text-muted-foreground">
@@ -113,7 +105,6 @@ export const Layout = ({ children }: LayoutProps) => {
               </p>
             </div>
 
-            {/* Links */}
             <div className="space-y-3">
               <h4 className="text-sm font-semibold">Navegação</h4>
               <ul className="space-y-2">
@@ -130,7 +121,6 @@ export const Layout = ({ children }: LayoutProps) => {
               </ul>
             </div>
 
-            {/* Contact */}
             <div className="space-y-3">
               <h4 className="text-sm font-semibold">Contato</h4>
               <ul className="space-y-2 text-sm text-muted-foreground">
@@ -139,7 +129,6 @@ export const Layout = ({ children }: LayoutProps) => {
               </ul>
             </div>
 
-            {/* Social */}
             <div className="space-y-3">
               <h4 className="text-sm font-semibold">Redes Sociais</h4>
               <div className="flex space-x-4">
