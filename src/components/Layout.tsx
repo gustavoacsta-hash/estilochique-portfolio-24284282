@@ -10,6 +10,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import logo from "@/assets/logo.svg";
 
 interface LayoutProps {
   children: ReactNode;
@@ -30,10 +31,8 @@ export const Layout = ({ children }: LayoutProps) => {
     <div className="min-h-screen flex flex-col">
       <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container flex h-16 items-center justify-between">
-          <Link to="/" className="flex items-center space-x-2">
-            <span className="font-serif text-2xl font-semibold tracking-tight">
-              ESTILO CHIQUE
-            </span>
+          <Link to="/" className="flex items-center">
+            <img src={logo} alt="Estilo Chique" className="h-10 md:h-12 w-auto" />
           </Link>
 
           <nav className="hidden md:flex items-center space-x-8">
@@ -66,8 +65,8 @@ export const Layout = ({ children }: LayoutProps) => {
               </SheetTrigger>
               <SheetContent side="right" className="w-[300px] sm:w-[400px]">
                 <SheetHeader>
-                  <SheetTitle className="font-serif text-xl text-left">
-                    ESTILO CHIQUE
+                  <SheetTitle className="font-serif text-xl text-left flex items-center">
+                    <img src={logo} alt="Estilo Chique" className="h-8" />
                   </SheetTitle>
                 </SheetHeader>
                 <nav className="flex flex-col space-y-4 mt-8">
@@ -99,7 +98,7 @@ export const Layout = ({ children }: LayoutProps) => {
         <div className="container py-12">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="space-y-3">
-              <h3 className="font-serif text-lg font-semibold">ESTILO CHIQUE</h3>
+              <img src={logo} alt="Estilo Chique" className="h-10 mb-2" />
               <p className="text-sm text-muted-foreground">
                 Moda elegante e atemporal para mulheres que valorizam qualidade e sofisticação.
               </p>
