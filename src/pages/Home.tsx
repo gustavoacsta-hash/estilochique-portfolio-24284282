@@ -2,8 +2,12 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import heroImage from "@/assets/hero-image.jpg";
+import { produtos } from "@/data/products";
+import { ProductCard } from "@/components/ProductCard";
 
 export default function Home() {
+  const produtosDestaque = produtos.filter(produto => produto.destaque);
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -122,7 +126,34 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA Section */}
+      <section className="py-24 bg-muted/30">
+        <div className="container">
+          <div className="text-center space-y-4 mb-12">
+            <h2 className="font-serif text-4xl md:text-5xl font-bold">
+              Produtos em Destaque
+            </h2>
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+              Confira nossa seleção especial de peças exclusivas
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {produtosDestaque.map((produto) => (
+              <ProductCard key={produto.id} produto={produto} />
+            ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <Link to="/produtos">
+              <Button variant="outline" size="lg" className="rounded-sm">
+                Ver Todos os Produtos
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       <section className="py-24 bg-muted/50">
         <div className="container text-center space-y-8">
           <h2 className="font-serif text-4xl md:text-5xl font-bold">
