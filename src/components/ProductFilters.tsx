@@ -4,19 +4,19 @@ import { Search } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface ProductFiltersProps {
-  categories: string[];
-  selectedCategory: string;
-  onCategoryChange: (category: string) => void;
-  searchQuery: string;
-  onSearchChange: (query: string) => void;
+  categorias: string[];
+  categoriaSelecionada: string;
+  aoMudarCategoria: (categoria: string) => void;
+  textoBusca: string;
+  aoMudarBusca: (texto: string) => void;
 }
 
 export const ProductFilters = ({
-  categories,
-  selectedCategory,
-  onCategoryChange,
-  searchQuery,
-  onSearchChange,
+  categorias,
+  categoriaSelecionada,
+  aoMudarCategoria,
+  textoBusca,
+  aoMudarBusca,
 }: ProductFiltersProps) => {
   return (
     <div className="space-y-6">
@@ -25,27 +25,27 @@ export const ProductFilters = ({
         <Input
           type="text"
           placeholder="Buscar produtos..."
-          value={searchQuery}
-          onChange={(e) => onSearchChange(e.target.value)}
+          value={textoBusca}
+          onChange={(e) => aoMudarBusca(e.target.value)}
           className="pl-10"
         />
       </div>
 
       <div className="flex flex-wrap gap-2">
-        {categories.map((category) => (
+        {categorias.map((categoria) => (
           <Button
-            key={category}
-            variant={selectedCategory === category ? "default" : "outline"}
+            key={categoria}
+            variant={categoriaSelecionada === categoria ? "default" : "outline"}
             size="sm"
-            onClick={() => onCategoryChange(category)}
+            onClick={() => aoMudarCategoria(categoria)}
             className={cn(
               "rounded-full transition-all",
-              selectedCategory === category
+              categoriaSelecionada === categoria
                 ? "bg-primary text-primary-foreground"
                 : "hover:bg-secondary"
             )}
           >
-            {category}
+            {categoria}
           </Button>
         ))}
       </div>

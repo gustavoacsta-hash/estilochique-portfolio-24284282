@@ -1,50 +1,50 @@
 import { useState, useMemo } from "react";
-import { products, categories } from "@/data/products";
+import { produtos, categorias } from "@/data/products";
 import { ProductCard } from "@/components/ProductCard";
 import { ProductFilters } from "@/components/ProductFilters";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-const PRODUCTS_PER_PAGE = 12;
+const PRODUTOS_POR_PAGINA = 12;
 
 export default function Produtos() {
-  const [selectedCategory, setSelectedCategory] = useState("Todos");
-  const [searchQuery, setSearchQuery] = useState("");
-  const [currentPage, setCurrentPage] = useState(1);
+  const [categoriaSelecionada, setCategoriaSelecionada] = useState("Todos");
+  const [textoBusca, setTextoBusca] = useState("");
+  const [paginaAtual, setPaginaAtual] = useState(1);
 
-  const filteredProducts = useMemo(() => {
-    return products.filter((product) => {
-      const matchesCategory =
-        selectedCategory === "Todos" || product.category === selectedCategory;
-      const matchesSearch =
-        product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        product.description.toLowerCase().includes(searchQuery.toLowerCase());
-      return matchesCategory && matchesSearch;
+  const produtosFiltrados = useMemo(() => {
+    return produtos.filter((produto) => {
+      const combinaCategoria =
+        categoriaSelecionada === "Todos" || produto.categoria === categoriaSelecionada;
+      const combinaBusca =
+        produto.nome.toLowerCase().includes(textoBusca.toLowerCase()) ||
+        produto.descricao.toLowerCase().includes(textoBusca.toLowerCase());
+      return combinaCategoria && combinaBusca;
     });
-  }, [selectedCategory, searchQuery]);
+  }, [categoriaSelecionada, textoBusca]);
 
-  const totalPages = Math.ceil(filteredProducts.length / PRODUCTS_PER_PAGE);
-  const startIndex = (currentPage - 1) * PRODUCTS_PER_PAGE;
-  const endIndex = startIndex + PRODUCTS_PER_PAGE;
-  const currentProducts = filteredProducts.slice(startIndex, endIndex);
+  const totalPaginas = Math.ceil(produtosFiltrados.length / PRODUTOS_POR_PAGINA);
+  const indiceInicio = (paginaAtual - 1) * PRODUTOS_POR_PAGINA;
+  const indiceFim = indiceInicio + PRODUTOS_POR_PAGINA;
+  const produtosPagina = produtosFiltrados.slice(indiceInicio, indiceFim);
 
-  const handleCategoryChange = (category: string) => {
-    setSelectedCategory(category);
-    setCurrentPage(1);
+  const mudarCategoria = (categoria: string) => {
+    setCategoriaSelecionada(categoria);
+    setPaginaAtual(1);
   };
 
-  const handleSearchChange = (query: string) => {
-    setSearchQuery(query);
-    setCurrentPage(1);
+  const mudarBusca = (texto: string) => {
+    setTextoBusca(texto);
+    setPaginaAtual(1);
   };
 
-  const handlePreviousPage = () => {
-    setCurrentPage((prev) => Math.max(prev - 1, 1));
+  const irPaginaAnterior = () => {
+    setPaginaAtual((anterior) => Math.max(anterior - 1, 1));
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const handleNextPage = () => {
-    setCurrentPage((prev) => Math.min(prev + 1, totalPages));
+  const irProximaPagina = () => {
+    setPaginaAtual((anterior) => Math.min(anterior + 1, totalPaginas));
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
@@ -62,25 +62,25 @@ export default function Produtos() {
 
         <div className="mb-12 animate-fade-in" style={{ animationDelay: "0.1s" }}>
           <ProductFilters
-            categories={categories}
-            selectedCategory={selectedCategory}
-            onCategoryChange={handleCategoryChange}
-            searchQuery={searchQuery}
-            onSearchChange={handleSearchChange}
+            categorias={categorias}
+            categoriaSelecionada={categoriaSelecionada}
+            aoMudarCategoria={mudarCategoria}
+            textoBusca={textoBusca}
+            aoMudarBusca={mudarBusca}
           />
         </div>
 
         <div className="mb-6 text-sm text-muted-foreground">
-          {filteredProducts.length} {filteredProducts.length === 1 ? "produto encontrado" : "produtos encontrados"}
+          {produtosFiltrados.length} {produtosFiltrados.length === 1 ? "produto encontrado" : "produtos encontrados"}
         </div>
 
-        {currentProducts.length > 0 ? (
+        {produtosPagina.length > 0 ? (
           <div
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-12 animate-fade-in"
             style={{ animationDelay: "0.2s" }}
           >
-            {currentProducts.map((product) => (
-              <ProductCard key={product.id} product={product} />
+            {produtosPagina.map((produto) => (
+              <ProductCard key={produto.id} produto={produto} />
             ))}
           </div>
         ) : (
@@ -91,8 +91,8 @@ export default function Produtos() {
             <Button
               variant="outline"
               onClick={() => {
-                setSelectedCategory("Todos");
-                setSearchQuery("");
+                setCategoriaSelecionada("Todos");
+                setTextoBusca("");
               }}
               className="mt-6"
             >
@@ -101,31 +101,31 @@ export default function Produtos() {
           </div>
         )}
 
-        {totalPages > 1 && (
+        {totalPaginas > 1 && (
           <div className="flex items-center justify-center gap-4 mt-12">
             <Button
               variant="outline"
               size="icon"
-              onClick={handlePreviousPage}
-              disabled={currentPage === 1}
+              onClick={irPaginaAnterior}
+              disabled={paginaAtual === 1}
               className="rounded-full"
             >
               <ChevronLeft className="h-4 w-4" />
             </Button>
 
             <div className="flex items-center gap-2">
-              {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+              {Array.from({ length: totalPaginas }, (_, i) => i + 1).map((pagina) => (
                 <Button
-                  key={page}
-                  variant={currentPage === page ? "default" : "outline"}
+                  key={pagina}
+                  variant={paginaAtual === pagina ? "default" : "outline"}
                   size="sm"
                   onClick={() => {
-                    setCurrentPage(page);
+                    setPaginaAtual(pagina);
                     window.scrollTo({ top: 0, behavior: "smooth" });
                   }}
                   className="w-10 h-10 rounded-full"
                 >
-                  {page}
+                  {pagina}
                 </Button>
               ))}
             </div>
@@ -133,8 +133,8 @@ export default function Produtos() {
             <Button
               variant="outline"
               size="icon"
-              onClick={handleNextPage}
-              disabled={currentPage === totalPages}
+              onClick={irProximaPagina}
+              disabled={paginaAtual === totalPaginas}
               className="rounded-full"
             >
               <ChevronRight className="h-4 w-4" />

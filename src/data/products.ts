@@ -1,14 +1,14 @@
-export interface Product {
+export interface Produto {
   id: string;
-  name: string;
+  nome: string;
   slug: string;
-  description: string;
-  category: string;
-  image: string;
-  featured: boolean;
+  descricao: string;
+  categoria: string;
+  imagem: string;
+  destaque: boolean;
 }
 
-export const categories = [
+export const categorias = [
   "Todos",
   "Vestidos",
   "Blusas",
@@ -18,33 +18,33 @@ export const categories = [
   "Acessórios",
 ];
 
-export const products: Product[] = [
+export const produtos: Produto[] = [
   {
     id: "1",
-    name: "Vestido Midi Linho Bege",
+    nome: "Vestido Midi Linho Bege",
     slug: "vestido-midi-linho-bege",
-    description: "Vestido midi em linho natural com corte elegante e alças ajustáveis",
-    category: "Vestidos",
-    image: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=800&q=80",
-    featured: true,
+    descricao: "Vestido midi em linho natural com corte elegante e alças ajustáveis",
+    categoria: "Vestidos",
+    imagem: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=800&q=80",
+    destaque: true,
   },
   {
     id: "2",
-    name: "Blusa Cetim Ivory",
+    nome: "Blusa Cetim Ivory",
     slug: "blusa-cetim-ivory",
-    description: "Blusa em cetim com gola laço e mangas longas bufantes",
-    category: "Blusas",
-    image: "https://images.unsplash.com/photo-1564584217132-2271feaeb3c5?w=800&q=80",
-    featured: true,
+    descricao: "Blusa em cetim com gola laço e mangas longas bufantes",
+    categoria: "Blusas",
+    imagem: "https://images.unsplash.com/photo-1564584217132-2271feaeb3c5?w=800&q=80",
+    destaque: true,
   },
   {
     id: "3",
-    name: "Calça Alfaiataria Preta",
+    nome: "Calça Alfaiataria Preta",
     slug: "calca-alfaiataria-preta",
-    description: "Calça de alfaiataria com cintura alta e corte reto clássico",
-    category: "Calças",
-    image: "https://images.unsplash.com/photo-1594633313593-bab3825d0caf?w=800&q=80",
-    featured: false,
+    descricao: "Calça de alfaiataria com cintura alta e corte reto clássico",
+    categoria: "Calças",
+    imagem: "https://images.unsplash.com/photo-1594633313593-bab3825d0caf?w=800&q=80",
+    destaque: false,
   },
   {
     id: "4",
