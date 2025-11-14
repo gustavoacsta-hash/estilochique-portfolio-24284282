@@ -15,16 +15,16 @@ interface LayoutProps {
   children: ReactNode;
 }
 
-const navigation = [
-  { name: "Início", href: "/" },
-  { name: "Produtos", href: "/produtos" },
-  { name: "Sobre", href: "/sobre" },
-  { name: "Contato", href: "/contato" },
+const navegacao = [
+  { nome: "Início", url: "/" },
+  { nome: "Produtos", url: "/produtos" },
+  { nome: "Sobre", url: "/sobre" },
+  { nome: "Contato", url: "/contato" },
 ];
 
 export const Layout = ({ children }: LayoutProps) => {
   const location = useLocation();
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [menuMobileAberto, setMenuMobileAberto] = useState(false);
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -37,18 +37,18 @@ export const Layout = ({ children }: LayoutProps) => {
           </Link>
 
           <nav className="hidden md:flex items-center space-x-8">
-            {navigation.map((item) => (
+            {navegacao.map((item) => (
               <Link
-                key={item.name}
-                to={item.href}
+                key={item.nome}
+                to={item.url}
                 className={cn(
                   "text-sm font-medium transition-colors hover:text-primary",
-                  location.pathname === item.href
+                  location.pathname === item.url
                     ? "text-primary"
                     : "text-muted-foreground"
                 )}
               >
-                {item.name}
+                {item.nome}
               </Link>
             ))}
           </nav>
@@ -58,7 +58,7 @@ export const Layout = ({ children }: LayoutProps) => {
               <Search className="h-5 w-5" />
             </Button>
 
-            <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
+            <Sheet open={menuMobileAberto} onOpenChange={setMenuMobileAberto}>
               <SheetTrigger asChild>
                 <Button variant="ghost" size="icon" className="md:hidden">
                   <Menu className="h-5 w-5" />
@@ -71,19 +71,19 @@ export const Layout = ({ children }: LayoutProps) => {
                   </SheetTitle>
                 </SheetHeader>
                 <nav className="flex flex-col space-y-4 mt-8">
-                  {navigation.map((item) => (
+                  {navegacao.map((item) => (
                     <Link
-                      key={item.name}
-                      to={item.href}
-                      onClick={() => setMobileMenuOpen(false)}
+                      key={item.nome}
+                      to={item.url}
+                      onClick={() => setMenuMobileAberto(false)}
                       className={cn(
                         "text-lg font-medium transition-colors hover:text-primary py-2",
-                        location.pathname === item.href
+                        location.pathname === item.url
                           ? "text-primary"
                           : "text-muted-foreground"
                       )}
                     >
-                      {item.name}
+                      {item.nome}
                     </Link>
                   ))}
                 </nav>
@@ -108,13 +108,13 @@ export const Layout = ({ children }: LayoutProps) => {
             <div className="space-y-3">
               <h4 className="text-sm font-semibold">Navegação</h4>
               <ul className="space-y-2">
-                {navigation.map((item) => (
-                  <li key={item.name}>
+                {navegacao.map((item) => (
+                  <li key={item.nome}>
                     <Link
-                      to={item.href}
+                      to={item.url}
                       className="text-sm text-muted-foreground hover:text-primary transition-colors"
                     >
-                      {item.name}
+                      {item.nome}
                     </Link>
                   </li>
                 ))}

@@ -1,24 +1,24 @@
 import { Link } from "react-router-dom";
-import { Product } from "@/data/products";
+import { Produto } from "@/data/products";
 import { Card, CardContent } from "@/components/ui/card";
 
 interface ProductCardProps {
-  product: Product;
+  produto: Produto;
 }
 
-export const ProductCard = ({ product }: ProductCardProps) => {
+export const ProductCard = ({ produto }: ProductCardProps) => {
   return (
-    <Link to={`/produtos/${product.slug}`}>
+    <Link to={`/produtos/${produto.slug}`}>
       <Card className="group overflow-hidden border-border/50 hover:border-border transition-all duration-300 hover-lift">
         <CardContent className="p-0">
           <div className="relative aspect-[3/4] overflow-hidden bg-muted">
             <img
-              src={product.image}
-              alt={product.name}
+              src={produto.imagem}
+              alt={produto.nome}
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               loading="lazy"
             />
-            {product.featured && (
+            {produto.destaque && (
               <div className="absolute top-3 left-3 bg-primary text-primary-foreground text-xs font-medium px-3 py-1 rounded-sm">
                 Destaque
               </div>
@@ -27,13 +27,13 @@ export const ProductCard = ({ product }: ProductCardProps) => {
 
           <div className="p-4 space-y-2">
             <p className="text-xs text-muted-foreground uppercase tracking-wider">
-              {product.category}
+              {produto.categoria}
             </p>
             <h3 className="font-serif text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
-              {product.name}
+              {produto.nome}
             </h3>
             <p className="text-sm text-muted-foreground line-clamp-2">
-              {product.description}
+              {produto.descricao}
             </p>
           </div>
         </CardContent>

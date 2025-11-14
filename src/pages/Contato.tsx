@@ -5,17 +5,15 @@ import { Label } from "@/components/ui/label";
 import { Mail, MessageSquare } from "lucide-react";
 
 export default function Contato() {
-  const handleSubmit = (e: React.FormEvent) => {
+  const enviarFormulario = (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: Implement form submission with Zod + React Hook Form + Resend
-    console.log("Form submitted");
+    console.log("Formulário enviado");
   };
 
   return (
     <div className="min-h-screen py-24">
       <div className="container max-w-6xl">
         <div className="grid md:grid-cols-2 gap-12 animate-fade-in-up">
-          {/* Left Column - Info */}
           <div className="space-y-8">
             <div className="space-y-4">
               <h1 className="font-serif text-5xl md:text-6xl font-bold">
@@ -28,7 +26,6 @@ export default function Contato() {
             </div>
 
             <div className="space-y-6">
-              {/* Email */}
               <div className="flex items-start space-x-4">
                 <div className="w-12 h-12 bg-secondary rounded-full flex items-center justify-center flex-shrink-0">
                   <Mail className="w-5 h-5 text-primary" />
@@ -44,7 +41,6 @@ export default function Contato() {
                 </div>
               </div>
 
-              {/* WhatsApp */}
               <div className="flex items-start space-x-4">
                 <div className="w-12 h-12 bg-secondary rounded-full flex items-center justify-center flex-shrink-0">
                   <MessageSquare className="w-5 h-5 text-primary" />
@@ -58,7 +54,6 @@ export default function Contato() {
               </div>
             </div>
 
-            {/* Social Media */}
             <div className="pt-8 border-t border-border">
               <h3 className="font-semibold mb-4">Redes Sociais</h3>
               <div className="flex space-x-4">
