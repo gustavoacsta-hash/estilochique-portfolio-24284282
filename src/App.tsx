@@ -1,15 +1,15 @@
-import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
+import { Toaster } from "@/shared/components/ui/toaster";
+import { Toaster as Sonner } from "@/shared/components/ui/sonner";
+import { TooltipProvider } from "@/shared/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Layout } from "./components/Layout";
-import Home from "./pages/Home";
-import Produtos from "./pages/Produtos";
-import ProdutoDetalhes from "./pages/ProdutoDetalhes";
-import Sobre from "./pages/Sobre";
-import Contato from "./pages/Contato";
-import NotFound from "./pages/NotFound";
+import { Layout } from "@/shared/components/layout/Layout";
+import Home from "@/features/home/pages/Home";
+import ListaProdutos from "@/features/produtos/pages/ListaProdutos";
+import DetalhesProduto from "@/features/produtos/pages/DetalhesProduto";
+import Sobre from "@/features/sobre/pages/Sobre";
+import Contato from "@/features/contato/pages/Contato";
+import NaoEncontrada from "@/pages/NaoEncontrada";
 
 const queryClient = new QueryClient();
 
@@ -22,12 +22,11 @@ const App = () => (
         <Layout>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/produtos" element={<Produtos />} />
-            <Route path="/produtos/:slug" element={<ProdutoDetalhes />} />
+            <Route path="/produtos" element={<ListaProdutos />} />
+            <Route path="/produtos/:slug" element={<DetalhesProduto />} />
             <Route path="/sobre" element={<Sobre />} />
             <Route path="/contato" element={<Contato />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
+            <Route path="*" element={<NaoEncontrada />} />
           </Routes>
         </Layout>
       </BrowserRouter>
