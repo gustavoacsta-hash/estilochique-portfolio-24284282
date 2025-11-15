@@ -30,9 +30,9 @@ export const Layout = ({ children }: LayoutProps) => {
   return (
     <div className="min-h-screen flex flex-col">
       <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="container flex h-20 md:h-24 items-center justify-between py-3">
+        <div className="container flex h-24 md:h-28 items-center justify-between py-3">
           <Link to="/" className="flex items-center">
-            <img src={logo} alt="Estilo Chique" className="h-16 md:h-20 w-auto" />
+            <img src={logo} alt="Estilo Chique" className="h-20 md:h-24 w-auto" />
           </Link>
 
           <nav className="hidden md:flex items-center space-x-8">
