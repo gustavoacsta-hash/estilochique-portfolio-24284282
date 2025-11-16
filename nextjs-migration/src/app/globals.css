@@ -4,47 +4,159 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Paleta inspirada nas cores da marca - Rosa, Marrom e Preto */
+    --background: 0 0% 98%;
+    --foreground: 348 21% 33%;
+
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 348 21% 33%;
+
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --popover-foreground: 348 21% 33%;
+
+    /* Primary: Marrom escuro sofisticado */
+    --primary: 348 21% 33%;
+    --primary-foreground: 0 0% 98%;
+
+    /* Secondary: Rosa elegante */
+    --secondary: 322 65% 78%;
+    --secondary-foreground: 348 21% 33%;
+
+    /* Muted: Tons neutros suaves */
+    --muted: 322 30% 95%;
+    --muted-foreground: 348 15% 50%;
+
+    /* Accent: Rosa mais vibrante para destaques */
+    --accent: 322 65% 78%;
+    --accent-foreground: 348 21% 33%;
+
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-    --radius: 0.5rem;
+
+    --border: 322 20% 90%;
+    --input: 322 20% 90%;
+    --ring: 348 21% 33%;
+
+    --radius: 0.25rem;
+
+    /* Cores personalizadas da marca */
+    --brand-rosa: 322 65% 78%;
+    --brand-marrom: 348 21% 33%;
+    --brand-escuro: 0 0% 10%;
+
+    /* Hero gradient overlay */
+    --hero-overlay: linear-gradient(135deg, rgba(101, 65, 69, 0.4), rgba(234, 161, 206, 0.2));
+    
+    /* Smooth transitions */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --background: 0 0% 10%;
+    --foreground: 322 65% 88%;
+
+    --card: 348 15% 15%;
+    --card-foreground: 322 65% 88%;
+
+    --popover: 348 15% 15%;
+    --popover-foreground: 322 65% 88%;
+
+    --primary: 322 65% 78%;
+    --primary-foreground: 348 21% 33%;
+
+    --secondary: 348 21% 25%;
+    --secondary-foreground: 322 65% 88%;
+
+    --muted: 348 15% 18%;
+    --muted-foreground: 322 30% 70%;
+
+    --accent: 322 65% 78%;
+    --accent-foreground: 348 21% 33%;
+
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+
+    --border: 348 15% 25%;
+    --input: 348 15% 25%;
+    --ring: 322 65% 78%;
+
+    --brand-rosa: 322 65% 78%;
+    --brand-marrom: 348 21% 33%;
+    --brand-escuro: 0 0% 10%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  /* Elegant typography */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+/* Custom animations for Estilo Chique */
+@layer utilities {
+  .animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  /* Hover scale for product cards */
+  .hover-lift {
+    transition: var(--transition-smooth);
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-4px);
+  }
+
+  /* Image overlay on hover */
+  .overlay-hover {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .overlay-hover::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transition: var(--transition-fast);
+  }
+
+  .overlay-hover:hover::after {
+    opacity: 1;
   }
 }
